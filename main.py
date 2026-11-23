@@ -15,6 +15,8 @@ def main():
     path = os.path.join(outdir, "entry.txt")
     with open(path, "w", encoding="utf-8") as f:
         f.write(text + "\n")
+    with open(path, encoding="utf-8") as f:
+        assert f.read() == text + "\n", "written entry does not match"
     print(f"wrote {len(text)} chars to {path}")
 
 
